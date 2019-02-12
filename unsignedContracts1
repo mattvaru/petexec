@@ -1,0 +1,58 @@
+Sub unsignedContract1()
+'
+' unsignedContract1 Macro
+' Use this macro if you only require Contract 1 to be signed in PetExec.
+'
+
+'
+    Sheets("Active Users").Select
+    LastRow = Range("A65536").End(xlUp).Row
+
+    Columns("D:M").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("F:I").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("H:K").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("K:AR").Select
+    Selection.Delete Shift:=xlToLeft
+    Rows("1:1").Select
+    Selection.Copy
+    Application.CutCopyMode = False
+    Range("M2").Select
+    Columns("J:J").EntireColumn.AutoFit
+    Columns("I:I").EntireColumn.AutoFit
+    Columns("I:I").Select
+    Selection.AutoFilter
+    ActiveSheet.Range("$I$1:$I$" & LastRow).AutoFilter Field:=1, Criteria1:="Yes"
+    Range("K3").Select
+    Selection.SpecialCells(xlCellTypeVisible).Select
+    Selection.Delete Shift:=xlUp
+    Range("K12").Select
+    ActiveWindow.SmallScroll Down:=-147
+    Rows("1:1").Select
+    Selection.Insert Shift:=xlDown, CopyOrigin:=xlFormatFromLeftOrAbove
+    Range("A1").Select
+    ActiveCell.FormulaR1C1 = "userid"
+    Range("B1").Select
+    ActiveCell.FormulaR1C1 = "firstname"
+    Range("C1").Select
+    ActiveCell.FormulaR1C1 = "lastname"
+    Range("D1").Select
+    ActiveCell.FormulaR1C1 = "cell"
+    Range("E1").Select
+    ActiveCell.FormulaR1C1 = "email"
+    Range("F1").Select
+    ActiveCell.FormulaR1C1 = "username"
+    Range("G1").Select
+    ActiveCell.FormulaR1C1 = "password"
+    Range("H1").Select
+    ActiveCell.FormulaR1C1 = "Email Blast Enabled"
+    Range("I1").Select
+    ActiveCell.FormulaR1C1 = "Agreement 1"
+    Rows("1:1").Select
+    Selection.Font.Bold = True
+    Columns("A:I").Select
+    Columns("A:I").EntireColumn.AutoFit
+    Range("J6").Select
+End Sub
