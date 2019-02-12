@@ -1,0 +1,100 @@
+Sub unsignedContracts1_and_2()
+'
+' unsignedContracts1_and_2 Macro
+'
+
+'
+    Sheets("Active Users").Select
+    LastRow = Range("A65536").End(xlUp).Row
+
+    Columns("D:M").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("F:I").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("H:K").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("M:AR").Select
+    Selection.Delete Shift:=xlToLeft
+    Rows("1:1").Select
+    Range("B1").Activate
+    Columns("M:M").EntireColumn.AutoFit
+    Columns("L:L").EntireColumn.AutoFit
+    Columns("K:K").EntireColumn.AutoFit
+    Columns("J:J").EntireColumn.AutoFit
+    Columns("I:I").EntireColumn.AutoFit
+    Columns("J:J").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("K:K").Select
+    Selection.Delete Shift:=xlToLeft
+    Range("K1").Select
+    ActiveCell.FormulaR1C1 = "Are BOTH contracts signed?"
+    Range("K2").Select
+    Columns("K:K").EntireColumn.AutoFit
+    Rows("1:1").Select
+    Range("B1").Activate
+    Selection.Font.Bold = True
+    Range("K2").Select
+    ActiveCell.FormulaR1C1 = "=IF(OR(RC[-2]=""No"",RC[-1]=""No""),""No"",""Yes"")"
+    Range("K2").Select
+    Selection.AutoFill Destination:=Range("K2:K" & LastRow)
+    Range("K2:K" & LastRow).Select
+    ActiveWindow.SmallScroll Down:=636
+    ActiveWindow.ScrollRow = 579
+    ActiveWindow.ScrollRow = 515
+    ActiveWindow.ScrollRow = 1
+    Columns("K:K").Select
+    Selection.AutoFilter
+    ActiveSheet.Range("$K$1:$K$" & LastRow).AutoFilter Field:=1, Criteria1:="Yes"
+    Range("M7").Select
+    ActiveWindow.SmallScroll Down:=-48
+    Selection.SpecialCells(xlCellTypeVisible).Select
+    Range("B1:K1").Select
+    Selection.Copy
+    Application.CutCopyMode = False
+    Range("N4").Select
+    Selection.SpecialCells(xlCellTypeVisible).Select
+    Selection.Delete Shift:=xlUp
+    Range("M3").Select
+    ActiveWindow.SmallScroll Down:=-51
+    Rows("1:1").Select
+    Range("B1").Activate
+    Selection.Insert Shift:=xlDown, CopyOrigin:=xlFormatFromLeftOrAbove
+    Range("B1").Select
+    Range("B1").Select
+    Range("A1").Select
+    ActiveCell.FormulaR1C1 = "userid"
+    Range("B1").Select
+    ActiveCell.FormulaR1C1 = "firstname"
+    Range("C1").Select
+    ActiveCell.FormulaR1C1 = "lastname"
+    Range("D1").Select
+    ActiveCell.FormulaR1C1 = "cell"
+    Range("E1").Select
+    ActiveCell.FormulaR1C1 = "email"
+    Range("F1").Select
+    ActiveCell.FormulaR1C1 = "username"
+    Range("G1").Select
+    ActiveCell.FormulaR1C1 = "password"
+    Range("H1").Select
+    ActiveCell.FormulaR1C1 = "Email Blast Enabled"
+    Range("I1").Select
+    ActiveCell.FormulaR1C1 = "Agreement 1"
+    Range("J1").Select
+    ActiveCell.FormulaR1C1 = "Agreement 2"
+    Range("K1").Select
+    ActiveCell.FormulaR1C1 = "Are BOTH contracts signed?"
+    Rows("1:1").Select
+    Selection.Font.Bold = True
+    Columns("A:A").EntireColumn.AutoFit
+    Columns("B:B").EntireColumn.AutoFit
+    Columns("C:C").EntireColumn.AutoFit
+    Columns("D:D").EntireColumn.AutoFit
+    Columns("E:E").EntireColumn.AutoFit
+    Columns("F:F").EntireColumn.AutoFit
+    Columns("G:G").EntireColumn.AutoFit
+    Columns("H:H").EntireColumn.AutoFit
+    Columns("I:I").EntireColumn.AutoFit
+    Columns("J:J").EntireColumn.AutoFit
+    Columns("K:K").EntireColumn.AutoFit
+    Range("N5").Select
+End Sub
