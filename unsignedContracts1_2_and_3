@@ -1,0 +1,105 @@
+
+Sub unsignedContracts1_2_and_3()
+'
+' unsignedContracts1_2_and_3 Macro
+'
+
+'
+    Sheets("Active Users").Select
+    LastRow = Range("A65536").End(xlUp).Row
+
+    Columns("D:M").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("F:I").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("H:K").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("O:AR").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("H:N").Select
+    Range("N1").Activate
+    Selection.ColumnWidth = 10.17
+    Columns("H:N").EntireColumn.AutoFit
+    Range("M1").Select
+    ActiveCell.FormulaR1C1 = "Third Agreement"
+    Range("M2").Select
+    Columns("M:M").ColumnWidth = 3.5
+    Columns("M:M").EntireColumn.AutoFit
+    Rows("1:1").Select
+    Range("C1").Activate
+    Selection.Font.Bold = True
+    Columns("H:N").Select
+    Range("N1").Activate
+    Selection.ColumnWidth = 16.17
+    Columns("H:N").EntireColumn.AutoFit
+    Range("R11").Select
+    ActiveWindow.ScrollColumn = 2
+    ActiveWindow.ScrollColumn = 1
+    Rows("1:1").Select
+    Selection.Copy
+    Application.CutCopyMode = False
+    Columns("J:J").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("K:K").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("L:L").Select
+    Selection.Delete Shift:=xlToLeft
+    Range("L1").Select
+    ActiveCell.FormulaR1C1 = "Are ALL 3 agreements signed?"
+    Range("L2").Select
+    Columns("L:L").ColumnWidth = 10.17
+    Columns("L:L").EntireColumn.AutoFit
+    ActiveCell.FormulaR1C1 = _
+        "=IF(OR(RC[-3]=""No"",RC[-2]=""No"",RC[-1]=""No""),""No"",""Yes"")"
+    Range("L2").Select
+    Selection.AutoFill Destination:=Range("L2:L" & LastRow)
+    Range("L2:L" & LastRow).Select
+    Range("K4").Select
+    ActiveCell.FormulaR1C1 = "Yes"
+    Range("K5").Select
+    ActiveCell.FormulaR1C1 = "Yes"
+    Range("K8").Select
+    ActiveCell.FormulaR1C1 = "Yes"
+    Range("J8").Select
+    ActiveCell.FormulaR1C1 = "Yes"
+    Columns("L:L").Select
+    Selection.AutoFilter
+    ActiveSheet.Range("$L$1:$L$" & LastRow).AutoFilter Field:=1, Criteria1:="Yes"
+    Range("M" & LastRow).Select
+    Selection.SpecialCells(xlCellTypeVisible).Select
+    Range("M5").Select
+    Selection.SpecialCells(xlCellTypeVisible).Select
+    Selection.Delete Shift:=xlUp
+    Rows("1:1").Select
+    Selection.Insert Shift:=xlDown, CopyOrigin:=xlFormatFromLeftOrAbove
+    Rows("1:1").Select
+    Selection.Font.Bold = True
+    Range("A1").Select
+    ActiveCell.FormulaR1C1 = "userid"
+    Range("B1").Select
+    ActiveCell.FormulaR1C1 = "firstname"
+    Range("C1").Select
+    ActiveCell.FormulaR1C1 = "lastname"
+    Range("D1").Select
+    ActiveCell.FormulaR1C1 = "cell"
+    Range("E1").Select
+    ActiveCell.FormulaR1C1 = "email"
+    Range("F1").Select
+    ActiveCell.FormulaR1C1 = "username"
+    Range("G1").Select
+    ActiveCell.FormulaR1C1 = "password"
+    Range("H1").Select
+    ActiveCell.FormulaR1C1 = "Email Blast Enabled"
+    Range("I1").Select
+    ActiveCell.FormulaR1C1 = "Agreement 1"
+    Range("J1").Select
+    ActiveCell.FormulaR1C1 = "Agreement 2"
+    Range("K1").Select
+    ActiveCell.FormulaR1C1 = "Agreement 3"
+    Range("L1").Select
+    ActiveCell.FormulaR1C1 = "Have ALL 3 contracts been signed?"
+    Range("L1").Select
+    Columns("L:L").ColumnWidth = 26.17
+    Columns("L:L").EntireColumn.AutoFit
+    Range("N12").Select
+End Sub
